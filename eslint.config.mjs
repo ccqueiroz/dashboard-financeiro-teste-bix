@@ -7,9 +7,15 @@ import eslintPluginReactHooks from 'eslint-plugin-react-hooks';
 export default [
   {files: ["**/*.{js,mjs,cjs,ts,jsx,tsx}"]},
   {languageOptions: { globals: {...globals.browser, ...globals.node} }},
+  // eslint react config
   {
-    files: ["**/*.{ts,jsx,tsx}"],
+    files: ["**/*.{ts,tsx}"],
     ...pluginReact.configs.flat.recommended,
+    settings: {
+      react: {
+        version: "detect",
+      }
+    },
     plugins: {
       react: pluginReact.configs.flat.recommended.plugins.react,
       'react-hooks': eslintPluginReactHooks,
